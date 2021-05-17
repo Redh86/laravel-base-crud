@@ -18,7 +18,7 @@ class CreateDressesTable extends Migration
             $table->string('name');
             $table->string('marca');
             $table->string('taglia');
-            $table->int('prezzo', 6,2);
+            $table->float('prezzo', 6,2);
             $table->text('descrizione')->nullable();
             $table->timestamps();
         });
