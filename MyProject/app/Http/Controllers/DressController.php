@@ -14,7 +14,7 @@ class DressController extends Controller
      */
     public function index()
     {
-        $data = MyDress::all();
+        $vestiti = MyDress::all();
 
         $data = [
             'vestiti' => $vestiti
@@ -22,7 +22,8 @@ class DressController extends Controller
         
         return view('dresses.index', $data);
     }
-
+    //Perche non va con dresses?
+    //cos'è l'imbuto?
     /**
      * Show the form for creating a new resource.
      *

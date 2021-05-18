@@ -3,7 +3,8 @@
 @section('title', 'vestiti')
 
 @section('content')
-    
-    @dd($vestiti)
-    <h1>ciauuuuuuuuuuuuuuu</h1>
+    <h1>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
+    @foreach ($vestiti as $vestito)
+        @dump($vestito)
+    @endforeach
 @endsection
