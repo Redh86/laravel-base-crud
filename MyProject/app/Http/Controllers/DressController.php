@@ -53,7 +53,14 @@ class DressController extends Controller
      */
     public function show($id)
     {
-        return ' agvzzzzzzzz';
+        if($id){
+            $vestito = MyDress::find($id);
+            $data = [
+                'vestito' => $vestito
+            ];
+            return view('dresses.show', $data);
+        }
+        abort(404);
     }
 
     /**
