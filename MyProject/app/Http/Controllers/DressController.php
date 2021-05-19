@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\MyDress;
+use App\Dress;
 
 class DressController extends Controller
 {
@@ -14,7 +14,7 @@ class DressController extends Controller
      */
     public function index()
     {
-        $vestiti = MyDress::all();
+        $vestiti = Dress::all();
 
         $data = [
             'vestiti' => $vestiti
@@ -31,7 +31,7 @@ class DressController extends Controller
      */
     public function create()
     {
-        //
+        return view('dresses.create');
     }
 
     /**
@@ -42,7 +42,19 @@ class DressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        @dd($request);
+        $data = $request->all();
+
+        $new_dress = new Dress();
+
+        $new_dress->name = $data['name'];
+        $new_dress->marca = $data['marca'];
+        $new_dress->taglia = $data['taglia'];
+        $new_dress->prezzo = $data['prezzo'];
+        $new_dress->descrizione = $data['descrizione'];
+
+        $new_dress->save();
+
     }
 
     /**
@@ -54,7 +66,7 @@ class DressController extends Controller
     public function show($id)
     {
         if($id){
-            $vestito = MyDress::find($id);
+            $vestito = Dress::find($id);
             $data = [
                 'vestito' => $vestito
             ];

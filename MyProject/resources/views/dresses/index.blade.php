@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+    <a href="{{ route('vestiti.create')}}" class="btn btn-primary">Inserisci nuovo Vestito</a>
     <table class="table">
         <thead>
           <tr>
