@@ -45,6 +45,13 @@ class DressController extends Controller
         
         $data = $request->all();
 
+        $request->validate([
+            'name'=>'required|unique:dresses|max:255',
+            'marca'=>'required|max:255',
+            'taglia'=>'required|max:4',
+            'prezzo'=>'required|numeric'
+        ]);
+
         $new_dress = new Dress();
 
         $new_dress->name = $data['name'];
@@ -81,9 +88,9 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dress $vestiti)
     {
-        //
+        return view('dresses.edit', compact('vestiti'));
     }
 
     /**
@@ -93,9 +100,11 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dress $vestiti)
     {
-        //
+        $data = $request->all();
+        $vestiti->update($data);
+        return redirect()->route('vestiti.index');
     }
 
     /**
@@ -104,8 +113,9 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dress $vestiti)
     {
-        //
+        $vestiti->delete();
+        return redirect()->route('vestiti.index');
     }
 }

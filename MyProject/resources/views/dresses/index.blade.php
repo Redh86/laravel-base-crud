@@ -28,8 +28,13 @@
                     <td>{{$vestito['descrizione']}}</td>
                     <td>
                         <a href="{{route('vestiti.show', ['vestiti' => $vestito -> id])}}" class="btn btn-info">Dettagli</a>
+                        <a href="{{route('vestiti.edit', ['vestiti' => $vestito -> id])}}" class="btn btn-warning">Modifica</a>
+                        <form action="{{route('vestiti.destroy', ['vestiti' => $vestito -> id])}}" method='post'>
+                          @csrf
+                          @method('delete')
+                          <button type="submit" class="btn btn-danger">Cancella</button>
+                        </form>
                     </td>
-
                 </tr>
             @endforeach
         </tbody>
