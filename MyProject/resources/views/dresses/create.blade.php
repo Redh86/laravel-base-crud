@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <form action="{{ route('vestiti.store')}}" method="POST ">
+  <form action="{{ route('vestiti.store')}}" method="POST">
       @csrf
       @method('post')
 

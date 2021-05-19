@@ -42,7 +42,7 @@ class DressController extends Controller
      */
     public function store(Request $request)
     {
-        @dd($request);
+        
         $data = $request->all();
 
         $new_dress = new Dress();
@@ -54,7 +54,7 @@ class DressController extends Controller
         $new_dress->descrizione = $data['descrizione'];
 
         $new_dress->save();
-
+        return redirect()->route('vestiti.index');
     }
 
     /**
